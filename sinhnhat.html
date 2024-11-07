@@ -25,7 +25,7 @@
 
       /* 3D Carousel Container */
       .carousel-container {
-        position: absolute;
+        position: relative;
         perspective: 1000px;
         width: 100%;
         height: 300px;
@@ -40,7 +40,7 @@
         width: 250px;
         height: 250px;
         position: absolute;
-        top: 200px;
+        top: 100px;
         transform-style: preserve-3d;
         animation: rotate 20s infinite linear;
       }
@@ -48,8 +48,10 @@
       /* Each Image on Carousel */
       .carousel img {
         position: absolute;
-        width: 200px;
-        height: 400px;
+        width: 20vh;
+        height: 40vh;
+        max-height: 40vh;
+        max-height: 60vh;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: transform 0.5s;
@@ -72,24 +74,6 @@
         background-size: cover;
         position: absolute;
         bottom: 0;
-      } */
-
-      /* Hiệu ứng trái tim bay */
-      /* .heart {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: #ff5e5e;
-        clip-path: polygon(
-          50% 0%,
-          100% 35%,
-          75% 100%,
-          50% 75%,
-          25% 100%,
-          0% 35%
-        );
-        opacity: 0.8;
-        animation: floatUp 5s linear infinite;
       } */
 
       /* Hiệu ứng trái tim nổi lên */
@@ -233,7 +217,7 @@
       }
       canvas {
         width: 100%;
-        height: 50vw;
+        height: 100vh;
       }
       #audio-button {
         position: fixed;
@@ -275,6 +259,17 @@
     </div>
 
     <script>
+      function adjustCanvasSize() {
+        const canvas = document.getElementById("canvas");
+        canvas.width = window.innerWidth; // Set the width to the window's width
+        canvas.height = window.innerHeight; // Set the height to the window's height
+      }
+
+      // Call the function initially to set the canvas size
+      adjustCanvasSize();
+
+      // Adjust canvas size when the window is resized
+      window.addEventListener("resize", adjustCanvasSize);
       // Xác định vùng chứa body
       const body = document.body;
 
